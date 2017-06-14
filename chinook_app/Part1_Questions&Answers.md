@@ -20,3 +20,10 @@ Track.where('genre_id = ?', Genre.find_by(name: 'Hip Hop/Rap')).count
 5. Find the total amount of time required to listen to all the tracks in the database.
 
 Track.sum('Milliseconds')
+
+6. Find the highest price of any track that has the media type "MPEG audio file".
+
+Track.maximum(:unit_price).where('media_type_id=?', MediaType.find_by(name: 'Protected MPEG-4 video file'))
+
+MediaType.where(name: ‘MPEG audio file’)
+  Track.where(media_type_id: 1).maximum(:unit_price)
