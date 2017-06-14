@@ -8,3 +8,7 @@ Album.where(artist_id: Artist.find_by(name: 'Queen').id)
 
 "Protected MPEG-4 video file".
 Track.where('media_type_id=?', MediaType.find_by(name: 'Protected MPEG-4 video file')).count
+
+3. Find the genre with the name "Hip Hop/Rap".
+
+Genre.where('name = ?', "Hip Hop/Rap")
