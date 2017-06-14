@@ -37,3 +37,10 @@ Track.where('media_type_id=?', MediaType.find_by(name: 'MPEG audio file')).order
 8. Find the 2 oldest artists.
 
 Artist.order(created_at: :asc).limit(2)
+
+8. Find the 2 oldest artists.
+Artist.order(created_at: :asc).limit(2)
+
+9. Find the least expensive track that has the genre "Electronica/Dance".
+
+Track.where('genre_id = ?', Genre.find_by(name: 'Electronica/Dance')).order(unit_price: :asc).first
