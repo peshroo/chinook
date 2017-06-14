@@ -12,3 +12,7 @@ Track.where('media_type_id=?', MediaType.find_by(name: 'Protected MPEG-4 video f
 3. Find the genre with the name "Hip Hop/Rap".
 
 Genre.where('name = ?', "Hip Hop/Rap")
+
+4. Count how many tracks belong to the "Hip Hop/Rap" genre
+
+Track.where('genre_id = ?', Genre.find_by(name: 'Hip Hop/Rap')).count
