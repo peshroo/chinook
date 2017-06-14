@@ -33,3 +33,7 @@ MediaType.where(name: ‘MPEG audio file’)
 Track.where('media_type_id=?', MediaType.find_by(name: 'MPEG audio file')).maximum(:unit_price)     .name
 
 Track.where('media_type_id=?', MediaType.find_by(name: 'MPEG audio file')).order(unit_price: :desc).first.name
+
+8. Find the 2 oldest artists.
+
+Artist.order(created_at: :asc).limit(2)
