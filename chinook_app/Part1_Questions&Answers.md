@@ -27,3 +27,9 @@ Track.maximum(:unit_price).where('media_type_id=?', MediaType.find_by(name: 'Pro
 
 MediaType.where(name: ‘MPEG audio file’)
   Track.where(media_type_id: 1).maximum(:unit_price)
+
+7. Find the name of the most expensive track that has the media type "MPEG audio file".
+
+Track.where('media_type_id=?', MediaType.find_by(name: 'MPEG audio file')).maximum(:unit_price)     .name
+
+Track.where('media_type_id=?', MediaType.find_by(name: 'MPEG audio file')).order(unit_price: :desc).first.name
